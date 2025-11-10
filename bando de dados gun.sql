@@ -1,23 +1,28 @@
 CREATE SCHEMA loja_arma;
-CREATE TABLE categoria_arma(
-id_arma INT AUTO_INCREMENT PRIMARY KEY,
-Pistolas VARCHAR(50) NOT NULL,
-Revólveres VARCHAR(50) NOT NULL,
-Armas_Táticas VARCHAR(50) NOT NULL,
-Armas_Longas VARCHAR(50) NOT NULL,
-Acessórios VARCHAR(50) NOT NULL
-);
-select * from categoria_arma;
-
-CREATE TABLE arma_info (
-    id_arma INT AUTO_INCREMENT PRIMARY KEY,
-    Marca VARCHAR(50) NOT NULL,
-    Modelo VARCHAR(50) NOT NULL,
-    Calibre VARCHAR(20) NOT NULL,
-    Categoria VARCHAR(50) NOT NULL,
-    Polegada_do_cano DECIMAL(4,2),
-    Modo_de_disparo VARCHAR(50) NOT NULL,
-    Nacionalidade VARCHAR(50) NOT NULL
+CREATE TABLE produtos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT NOT NULL,
+    preco DECIMAL(10,2) NOT NULL,
+    estoque INT NOT NULL,           
+    calibre VARCHAR(20),
+    capacidade VARCHAR(20),
+    peso VARCHAR(20),             
+    marca VARCHAR(50),
+    categoria VARCHAR(50),
+    badge VARCHAR(30),             
+    imagem VARCHAR(255),   
+    disponivel ENUM('Sim','Não') DEFAULT 'Sim',
+    data_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP, -- quando foi inserido
+    data_atualizacao DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP -- ultima vez que foi atualizado
 );
 
-select * from arma_info;
+CREATE TABLE usuarios (
+    
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    sobrenome VARCHAR(100) NOT NULL, 
+    cpf VARCHAR(14) NOT NULL UNIQUE, -- a funçao desse unique é que não tenha valores iguais
+    senha VARCHAR(255) NOT NULL,
+    data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP
+);
