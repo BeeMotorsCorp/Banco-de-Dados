@@ -1,0 +1,25 @@
+CREATE PROCEDURE inserir_produto (
+    IN p_nome VARCHAR(100),
+    IN p_descricao TEXT,
+    IN p_preco DECIMAL(10,2),
+    IN p_estoque INT,
+    IN p_calibre VARCHAR(20),
+    IN p_capacidade VARCHAR(20),
+    IN p_peso VARCHAR(20),
+    IN p_marca VARCHAR(50),
+    IN p_categoria VARCHAR(50),
+    IN p_imagem VARCHAR(255)
+)
+BEGIN
+    INSERT INTO produtos (
+        nome, descricao, preco, estoque, calibre, capacidade, peso, 
+        marca, categoria, imagem
+    ) VALUES (
+        p_nome, p_descricao, p_preco, p_estoque, p_calibre, p_capacidade, 
+        p_peso, p_marca, p_categoria, p_imagem
+    );
+END$$
+
+call inserir_produto();
+
+DELIMITER ;
