@@ -23,3 +23,21 @@ END$$
 DELIMITER ;
 
 call inserir_produto();
+
+
+
+DELIMITER $$
+
+CREATE PROCEDURE atualizar_estoque (
+    IN p_id INT,
+    IN p_estoque INT
+)
+BEGIN
+    UPDATE produtos
+    SET estoque = p_estoque
+    WHERE id = p_id;
+END$$
+
+DELIMITER ;
+
+call atualizar_estoque(2, 0);
