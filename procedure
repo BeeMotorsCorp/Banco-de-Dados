@@ -20,6 +20,6 @@ BEGIN
     );
 END$$
 
-call inserir_produto();
-
 DELIMITER ;
+
+call inserir_produto();
