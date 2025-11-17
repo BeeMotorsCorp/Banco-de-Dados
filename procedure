@@ -40,4 +40,4 @@ END$$
 
 DELIMITER ;
 
-call atualizar_estoque(2, 0);
+call atualizar_estoque(2, 0)
