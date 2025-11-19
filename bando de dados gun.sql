@@ -26,3 +26,38 @@ CREATE TABLE usuarios (
     senha VARCHAR(255) NOT NULL,
     data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE documentos_usuario (
+    id_documento_usuario INT AUTO_INCREMENT PRIMARY KEY, 
+    id_usuario INT NOT NULL, -- Chave estrangeira para o usuário na tabela 'usuarios'.
+
+    --Esses ENUM aí abaixo significa Enumeração, que a função dele é aceitar somente um dos valores listados
+    comprovante_capacidade_tecnica ENUM('Aprovado', 'Pendente', 'Reprovado') DEFAULT 'Pendente',
+    
+    comprovante_habitualidade ENUM('Aprovado', 'Pendente', 'Reprovado') DEFAULT 'Pendente',
+    
+    declaracao_seguranca_acervo ENUM('Aprovado', 'Pendente', 'Reprovado') DEFAULT 'Pendente',
+    
+    certidao_antecedente_federal ENUM('Aprovado', 'Pendente', 'Reprovado') DEFAULT 'Pendente',
+    
+    declaracao_nao_responde_inquerito ENUM('Aprovado', 'Pendente', 'Reprovado') DEFAULT 'Pendente',
+    
+    documento_identificacao ENUM('Aprovado', 'Pendente', 'Reprovado') DEFAULT 'Pendente',
+    
+    laudo_aptidao_psicologica ENUM('Aprovado', 'Pendente', 'Reprovado') DEFAULT 'Pendente',
+    
+    comprovante_residencia ENUM('Aprovado', 'Pendente', 'Reprovado') DEFAULT 'Pendente',
+    
+    comprovante_ocupacao_licita ENUM('Aprovado', 'Pendente', 'Reprovado') DEFAULT 'Pendente',
+    
+    certidao_antecedente_estadual ENUM('Aprovado', 'Pendente', 'Reprovado') DEFAULT 'Pendente',
+    
+    certidao_antecedente_militar ENUM('Aprovado', 'Pendente', 'Reprovado') DEFAULT 'Pendente',
+    
+    certidao_antecedente_eleitoral ENUM('Aprovado', 'Pendente', 'Reprovado') DEFAULT 'Pendente',
+    
+    data_envio DATETIME DEFAULT CURRENT_TIMESTAMP, -- Data em que o registro foi criado
+    data_ultima_analise DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- Última data de atualização 
+    
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) -- esse REFERENCE é para ligar o "id_usuario" da tabela "usuarios" com o "id_usuario" da tabela "documentos_usuario"
+);
