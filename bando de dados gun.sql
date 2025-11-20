@@ -18,11 +18,11 @@ CREATE TABLE produtos (
 );
 
 CREATE TABLE usuarios (
-    
-    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    sobrenome VARCHAR(100) NOT NULL, 
-    cpf VARCHAR(14) NOT NULL UNIQUE, -- a funçao desse unique é que não tenha valores iguais
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL,
+    sobrenome VARCHAR(50) NOT NULL,
+    cpf VARCHAR(14) NOT NULL UNIQUE,
+    usuario VARCHAR(50) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
     data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP
 );
