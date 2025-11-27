@@ -1,4 +1,4 @@
-CREATE SCHEMA loja_arma;
+CREATE SCHEMA sport_gun;
 CREATE TABLE produtos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
